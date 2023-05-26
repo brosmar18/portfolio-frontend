@@ -11,7 +11,14 @@ const abouts = [
     { title: 'Web Animations', description: 'I am a good web animations developer', imgUrl: images.about03},
     { title: 'Web Development', description: 'I am a good web developer', imgUrl: images.about04}
 ]
+
+
 const About = () => {
+    const [abouts, setAbouts] = useState([]);
+
+    useEffect(() => {
+        const query = '*[_type == "abouts"]';
+    }, [])
     return (
         <>
             <h2 className='head-text'> I Know That <span>Good Development</span> <br /> means <span> Good Business</span>
