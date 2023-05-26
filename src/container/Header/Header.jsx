@@ -27,7 +27,7 @@ const scaleVariants = {
           <div className="badge-cmp app__flex">
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Hello, I am</p>
+              <p className="p-text">Hello, I'm</p>
               <h1 className="head-text">Bryan</h1>
             </div>
           </div>
