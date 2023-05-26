@@ -82,4 +82,9 @@
             font-size: 5rem;
         }
     }
+
+    @media screen and (max-widh: 12000px) {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }
