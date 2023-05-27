@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactTolltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import client, { urlFor } from '../../client';
@@ -11,7 +11,7 @@ const Skills = () => {
     const [skills, setSkills] = useState([]);
 
 
-    useEffect (() => {
+    useEffect(() => {
         const query = `*[_type == "experiences"]`;
         const skillsQuery = `*[_type == "skills"]`;
 
@@ -32,19 +32,43 @@ const Skills = () => {
             <div className='app__skills-container'>
                 <motion.div
                     className='app__skills-list'>
-                        {skills.map((skill) => (
+                    {skills.map((skill) => (
+                        <motion.div
+                            whileInView={{ opacity: [0, 1] }}
+                            transition={{ duration: 0.5 }}
+                            className='app__skills-item app__flex'
+                            key={skill.name}
+                        >
+                            <div className='app__flex' style={{ backgroundColor: skill.bgColor }}>
+                                <img src={urlFor(skill.icon)} alt={skill.name} />
+                            </div>
+                            <p className='p-text'>{skill.name}</p>
+                        </motion.div>
+                    ))}
+                </motion.div>
+                <motion.div className='app__skills-exp'>
+                    {experience.works.map((work) => (
+                        <>
                             <motion.div
-                                whileInView={{opacity: [0, 1]}}
-                                transition={{ duration: 0.5}}
-                                className='app__skills-item app__flex'
-                                key={skill.name}
+                                whileInView={{ opacity: [0, 1] }}
+                                transition={{ duration: 0.5 }}
+                                className='app__skills-exp-work'
+                                data-tip
+                                data-for={work.name}
+                                key={work.name}
                             >
-                                <div className='app__flex' style={{ backgroundColor: skill.bgColor }}>
-                                    <img src={urlFor(skill.icon)} alt={skill.name} />
-                                </div>
-                                <p className='p-text'>{skill.name}</p>
+                                <h4 className='bold-text'>{work.name}</h4>
+                                <p className='p-text'>{work.company}</p>
                             </motion.div>
-                        ))}
+                            <Tooltip
+                                id={work.name}
+                                effect="solid"
+                                arrowColor="#fff"
+                                className="skills-tooltop">
+                                {work.desc}
+                            </Tooltip>
+                        </>
+                    ))}
                 </motion.div>
             </div>
         </>
