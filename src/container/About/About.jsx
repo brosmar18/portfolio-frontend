@@ -2,17 +2,28 @@ import React, { useState, useEffect} from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
 import { images } from '../../constants';
-import { createClient } from '@sanity/client';
+import client from '../../client';
 
 
 
-const abouts = [
-    { title: 'Fontend Development', description: 'I am a good frontend developer.', imgUrl: images.about01},
-    { title: 'Backend Development', description: 'I am a good backend developer', imgUrl: images.about02},
-    { title: 'Web Animations', description: 'I am a good web animations developer', imgUrl: images.about03},
-    { title: 'Web Development', description: 'I am a good web developer', imgUrl: images.about04}
-]
+// const abouts = [
+//     { title: 'Fontend Development', description: 'I am a good frontend developer.', imgUrl: images.about01},
+//     { title: 'Backend Development', description: 'I am a good backend developer', imgUrl: images.about02},
+//     { title: 'Web Animations', description: 'I am a good web animations developer', imgUrl: images.about03},
+//     { title: 'Web Development', description: 'I am a good web developer', imgUrl: images.about04}
+// ]
+
 const About = () => {
+    const [abouts, setAbouts] = useState([]);
+
+    useEffect(() => {
+        const query = `*[_type == "about"]`;
+    
+        client.fetch(query)
+        .then((data) => setAbouts(data));
+    }, []);
+
+
     return (
         <>
             <h2 className='head-text'> I Know That <span>Good Development</span> <br /> means <span> Good Business</span>
