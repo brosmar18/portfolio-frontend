@@ -1,4 +1,5 @@
 import { createClient } from "@sanity/client";
+import ImageUrlBuilder from "@sanity/image-url";
 
 console.log(process.env.REACT_APP_SANITY_PROJECT_ID);
 const client = createClient({
@@ -9,5 +10,9 @@ const client = createClient({
     token: process.env.REACT_APP_SANITY_TOKEN,
     ignoreBrowserTokenWarning: true
 });
+
+const builder = ImageUrlBuilder(client);
+
+export const urlFor = (source) => builder.image(source);
 
 export default client;

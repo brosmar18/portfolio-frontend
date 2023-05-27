@@ -1,8 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
-import { images } from '../../constants';
-import client from '../../client';
+import client, { urlFor } from '../../client';
 
 
 
@@ -37,7 +36,7 @@ const About = () => {
                         className='app__profiles-item'
                         key={about.title + index}
                     >
-                        <img src={about.imgUrl} alt={about.title} />
+                        <img src={urlFor(about.imgUrl)} alt={about.title} />
                         <h2 className='bold-text' style={{ marginTop: 20 }}>{about.title}</h2>
                         <p className='bold-text' style={{ marginTop: 10 }}>{about.description}</p>
                     </motion.div>
