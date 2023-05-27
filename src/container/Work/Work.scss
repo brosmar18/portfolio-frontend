@@ -44,4 +44,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    .app__work-item {
+        width: 270px;
+        flex-direction: column;
+        margin: 2rem;
+        padding: 0.5rem;
+        background-color: #fff;
+        color: #000;
+    }
 }
