@@ -16,7 +16,7 @@ const AppWrap = (Component, idName, classNames) => function HOC() {
             </div>
             <NavigationDots active={idName} />
         </div>
-    )
-}
+    );
+};
 
 export default AppWrap;
