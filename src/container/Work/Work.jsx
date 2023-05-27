@@ -9,6 +9,8 @@ import './Work.scss';
 
 const Work = () => {
     const [activeFilter, setActiveFilter] = useState('All');
+    const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
+
     const handleWorkFilter = (item) => {
 
     }
@@ -26,6 +28,13 @@ const Work = () => {
                     </div>
                 ))}
             </div>
+            <motion.div
+                animate={animateCard}
+                transition={{ duration: 0.5, delayChildren: 0.5 }}
+                className='app__work-portfolio'
+            >
+
+            </motion.div>
         </>
     );
 }
