@@ -7,6 +7,25 @@ import './Skills.scss';
 
 
 const Skills = () => {
+    const [experience, setExperience] = useState([]);
+    const [skills, setSkills] = useState([]);
+
+
+    useEffect (() => {
+        const query = `*[_type == "experiences"]`;
+        const skillsQuery = `*[_type == "skills"]`;
+
+        client.fetch(query)
+            .then((data) => {
+                setExperience(data);
+            });
+        client.fetch(skillsQuery)
+            .then((data) => {
+                setSkills(data);
+            });
+
+    }, [])
+
     return (
         <>
             <h2 className='head-text'>Skills & Experience</h2>
