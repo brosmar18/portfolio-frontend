@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
 import { images } from '../../constants';
+import { createClient } from '@sanity/client';
 
 
 
