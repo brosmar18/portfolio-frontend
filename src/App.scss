@@ -10,3 +10,12 @@
 .app__primarybg{
     background-color: var(--primary-color);
 }
+
+.app__contaier {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
