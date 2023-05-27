@@ -62,7 +62,7 @@ const Skills = () => {
                                             whileInView={{ opacity: [0, 1] }}
                                             transition={{ duration: 0.5 }}
                                             className="app__skills-exp-work"
-                                            data-tip
+                                            data-tip={work.desc}
                                             data-for={work.name}
                                         >
                                             <h4 className="bold-text">{work.name}</h4>
@@ -79,6 +79,7 @@ const Skills = () => {
                                     </React.Fragment>
                                 ))}
 
+
                             </motion.div>
                         </motion.div>
                     ))}
@@ -87,4 +88,4 @@ const Skills = () => {
         </>
     );
 };
-export default Skills;
+export default AppWrap(Skills, 'app__skills');
