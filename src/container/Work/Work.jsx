@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
-import { AppWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 import client, { urlFor } from '../../client';
 
 import './Work.scss';
@@ -37,7 +37,7 @@ const Work = () => {
             }
         }, 500);
     };
-    
+
     return (
         <>
             <h2 className='head-text'> My Creative <span>Portfolio</span> Section </h2>
@@ -45,9 +45,9 @@ const Work = () => {
             <div className='app__work-filter'>
                 {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
                     <div key={index}
-                    onClick={() => handleWorkFilter(item)} 
+                    onClick={() => handleWorkFilter(item)}
                     className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>
-                        
+
                         {item}
                     </div>
                 ))}
@@ -102,4 +102,8 @@ const Work = () => {
     );
 }
 
-export default AppWrap(Work, 'work');
+export default AppWrap(
+    MotionWrap(Work, 'app__works'),
+    'work',
+    "app__primarybg"
+);
