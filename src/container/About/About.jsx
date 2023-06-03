@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
 import client, { urlFor } from '../../client';
-import { AppWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 
 const About = () => {
@@ -10,7 +10,7 @@ const About = () => {
 
     useEffect(() => {
         const query = `*[_type == "about"]`;
-    
+
         client.fetch(query)
         .then((data) => setAbouts(data));
     }, []);
