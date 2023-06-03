@@ -62,8 +62,8 @@ const Skills = () => {
                                             whileInView={{ opacity: [0, 1] }}
                                             transition={{ duration: 0.5 }}
                                             className="app__skills-exp-work"
-                                            data-tip={work.desc}
-                                            data-for={work.name}
+                                            data-tooltip-id={work.name}
+                                            data-tooltip-content={work.desc}
                                         >
                                             <h4 className="bold-text">{work.name}</h4>
                                             <p className="p-text">{work.company}</p>
@@ -73,13 +73,14 @@ const Skills = () => {
                                             effect="solid"
                                             arrowColor="#fff"
                                             className="skills-tooltip"
-                                        >
-                                            {work.desc}
-                                        </Tooltip>
+                                            render={({ content, activeAnchor }) => (
+                                                <p>
+                                                    {work.desc}
+                                                </p>
+                                            )}
+                                        />
                                     </React.Fragment>
                                 ))}
-
-
                             </motion.div>
                         </motion.div>
                     ))}
