@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-import { AppWrap, MotionWrapo } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 import client, { urlFor } from '../../client';
 
 import './Testimonial.scss';
@@ -30,4 +30,8 @@ const Testimonial = () => {
     );
 }
 
-export default Testimonial;
+export default AppWrap(
+    MotionWrap(Testimonial, 'app__testimonial'),
+    'testimonial',
+    'app__primarybg'
+);
