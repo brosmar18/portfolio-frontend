@@ -48,6 +48,9 @@ const Testimonial = () => {
                         <div className='app__flex' onClick={() => handleClick(currentIndex === 0 ? testimonials.length -1 : currentIndex -1)}>
                             <HiChevronLeft />
                         </div>
+                        <div className='app__flex' onClick={() => handleClick(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1)}>
+                            <HiChevronRight />
+                        </div>
                     </div>
                 </>
             )}
