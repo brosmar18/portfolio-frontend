@@ -11,6 +11,10 @@ const Testimonial = () => {
     const [ testimonials, setTestimonials] = useState([]);
     const [brands, setBrands] = useState([]);
 
+    const handleClick = (index) => {
+        setCurrentIndex(index);
+    };
+
     useEffect (() => {
         const query = `*[_type == "testimonials"]`;
         const brandsQuery = `*[_type == "brands"]`;
