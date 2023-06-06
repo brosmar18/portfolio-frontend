@@ -18,6 +18,12 @@ const Footer = () => {
                     <a href="tel:319-999-9999" className='p-text'>(319) 888-8888</a>
                 </div>
             </div>
+
+            <div className='app__footer-form app__flex'>
+                <div className='app__flex'>
+                    <input className='p-text' type='text' placeholder='Your Name' value={name} onChange={handleChangeInput} />
+                </div>
+            </div>
         </>
     );
 }
