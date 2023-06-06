@@ -5,6 +5,13 @@ import {client} from '../../client';
 import './Footer.scss';
 
 const Footer = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', message: ''});
+
+    const handleChangeInput = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
     return (
         <>
             <h2 className='head-text'>Take a coffee & chat with me</h2>
