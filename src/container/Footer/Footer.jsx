@@ -45,7 +45,7 @@ const Footer = () => {
                     <a href="tel:319-999-9999" className='p-text'>(319) 888-8888</a>
                 </div>
             </div>
-
+            {!isFormSubmitted ? (
             <div className='app__footer-form app__flex'>
                 <div className='app__flex'>
                     <input className='p-text' type='text' placeholder='Your Name' value={name} onChange={handleChangeInput} />
@@ -64,9 +64,14 @@ const Footer = () => {
                 </div>
                 <button type='button' className='p-text' onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
             </div>
+            ) : (
+                <div>
+                    <h3 className='head-text'> Thank you for getting in touch!</h3>
+                </div>
+            )}
         </>
     );
-}
+};
 
 
 export default AppWrap(
