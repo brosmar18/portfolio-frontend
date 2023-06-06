@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import client, { urlFor } from '../../client';
+import client from '../../client';
 import './Footer.scss';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const { name, email, message } = formData;
+    const { username, email, message } = formData;
 
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
@@ -48,7 +48,7 @@ const Footer = () => {
             {!isFormSubmitted ? (
             <div className='app__footer-form app__flex'>
                 <div className='app__flex'>
-                    <input className='p-text' type='text' placeholder='Your Name' value={name} onChange={handleChangeInput} />
+                    <input className='p-text' type='text' placeholder='Your Name' name='username' value={username} onChange={handleChangeInput} />
                 </div>
                 <div className='app__flex'>
                     <input className='p-flex' type='email' placeholder='Your Email' name='email' value={email} onChange={handleChangeInput} />
