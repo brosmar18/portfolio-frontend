@@ -1,10 +1,12 @@
 {
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "impliedStrict": true
-    }
+    "sourceType": "module"
   },
   "env": {
     "browser": true,
@@ -36,5 +38,6 @@
     ],
     "semi": [2, "always"],
     "eol-last": "error"
-  }
+  },
+  "plugins": ["import"]
 }
