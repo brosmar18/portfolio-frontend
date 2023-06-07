@@ -1,9 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
 import client, { urlFor } from '../../client';
 import { AppWrap, MotionWrap } from '../../wrapper';
-
 
 const About = () => {
     const [abouts, setAbouts] = useState([]);
@@ -11,14 +10,14 @@ const About = () => {
     useEffect(() => {
         const query = `*[_type == "about"]`;
 
-        client.fetch(query)
-        .then((data) => setAbouts(data));
+        client.fetch(query).then((data) => setAbouts(data));
     }, []);
-
 
     return (
         <>
-            <h2 className='head-text'><span>Innovative</span> Solutions <br/> for <span>Modern</span> Businesses</h2>
+            <h2 className='head-text'>
+                <span>Innovative</span> Solutions <br /> for <span>Modern</span> Businesses
+            </h2>
 
             <div className='app__profiles'>
                 {abouts.map((about, index) => (
@@ -30,17 +29,17 @@ const About = () => {
                         key={about.title + index}
                     >
                         <img src={urlFor(about.imgUrl)} alt={about.title} />
-                        <h2 className='bold-text' style={{ marginTop: 20 }}>{about.title}</h2>
-                        <p className='bold-text' style={{ marginTop: 10 }}>{about.description}</p>
+                        <h2 className='bold-text' style={{ marginTop: 20 }}>
+                            {about.title}
+                        </h2>
+                        <p className='bold-text' style={{ marginTop: 10 }}>
+                            {about.description}
+                        </p>
                     </motion.div>
                 ))}
             </div>
         </>
     );
-}
+};
 
-export default AppWrap (
-    MotionWrap(About, 'app__about'),
-    'about',
-    "app__whitebg"
-);
+export default AppWrap(MotionWrap(About, 'app__about'), 'about', 'app__whitebg');
